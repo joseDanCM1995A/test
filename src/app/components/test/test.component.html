@@ -1,34 +1,43 @@
 <div class="row">
     <div class="col-md-6 mx-auto text-center">
-        <label style="font-weight: bold">Test</label>
+        <label class="font-weight-bold">Test</label>
     </div>
 </div>
 <div class="row">
-    <div class="col-md-4 mx-auto text-center" style="border: 1px solid black;">
-
-        <label for="">Programmer A</label><br>
-        <div style="background-color: red; border-radius: 50%"></div>
+    <div class="col-md-4 mx-auto text-center bordr">
+        <label for="" class="font-weight-bold text-black">Programmer A</label><br>
+        <div [hidden]="end" *ngIf="!enableButton" class="turn"> </div>
         <button [hidden]="end" [disabled]="enableButton" class="btn btn-success mb-3" (click)="turnA()">OK</button> <br>
-        <div>
-            <label for="">Opciones a seleccionar</label> {{min}} - {{max}}
-            <label for="">Selecionada: {{min}}</label><br>
-            <label for=""></label> <br>
+        <div [hidden]="end">
+            <label for="" class="font-weight-bold">Options: {{min}}-{{max}}</label>
+            <br>
+            <label for="" class="font-weight-bold">Value selected:{{currentA}}</label><br>
+        </div>
+        <div class="win" *ngIf="winnerA">
+            <label for="" class="text-white">You win</label>
         </div>
     </div>
-    <div class="col-md-4 mx-auto text-center" style="border: 1px solid black;">
-        [ {{golds}} ]
-        <br>
-        <label for="">Respuesta:</label>
-        <br>
-        <span class="text-success" style="font-weight: bold; font-size: 30px;" *ngIf="result.length !== 0">[{{result}}]</span> <br>
-    </div>
-    <div class="col-md-4 mx-auto text-center" style="border: 1px solid black;">
-        <label for="">Programmer B</label><br>
-        <div style="background-color: red; border-radius: 50%"></div>
-        <button [hidden]="end" [disabled]="!enableButton" class="btn btn-success mb-3" (click)="turnB()">OK</button>
-        <div>
-            <label for="">Opciones a seleccionar</label> {{min}} - {{max}}
-            <label for="">Selecionada: {{min}}</label>
+    <div class="col-md-4 mx-auto text-center bordr ">
+        <div class="breakText mt-3 ">
+            <label for=" " class="font-weight-bold "> [ {{golds}} ] </label>
         </div>
+        <br>
+        <label for=" ">Respuesta:</label>
+        <br>
+        <span class="text-success " style="font-weight: bold; font-size: 30px; " *ngIf="result.length !==0 ">[{{result}}]</span> <br>
+    </div>
+    <div class="col-md-4 mx-auto text-center bordr ">
+        <label for=" " class="font-weight-bold text-black">Programmer B</label><br>
+        <div [hidden]="end " *ngIf="enableButton " class="turn "> </div>
+        <button [hidden]="end " [disabled]="!enableButton " class="btn btn-success mb-3 " (click)="turnB() ">OK</button>
+        <div [hidden]="end ">
+            <label for=" " class="font-weight-bold ">Options:{{minB}}-{{maxB}}</label>
+            <br>
+            <label for=" " class="font-weight-bold ">Value selected:{{currentB}} </label>
+        </div>
+        <div class="win" *ngIf="winnerB">
+            <label for=" " class="text-white"> You win</label>
+        </div>
+
     </div>
 </div>
